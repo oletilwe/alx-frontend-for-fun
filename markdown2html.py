@@ -2,7 +2,8 @@
 
 """
 markdown2html.py: A script to convert a Markdown file to an HTML file,
-with specific handling for headings, unordered lists, ordered lists, paragraphs, and bold text.
+with specific handling for headings, unordered lists, ordered lists,
+paragraphs, and bold text.
 """
 
 import sys
@@ -10,9 +11,11 @@ import os
 import re
 import markdown
 
+
 def convert_markdown_to_html(markdown_text):
     """
-    Converts a given Markdown text to HTML, with specific handling for headings,
+    Converts a given Markdown text to HTML,
+    with specific handling for headings,
     unordered lists, ordered lists, paragraphs, and bold text.
     """
     lines = markdown_text.splitlines()
@@ -81,7 +84,7 @@ def convert_markdown_to_html(markdown_text):
                 in_paragraph = True
             html_line = convert_bold_syntax(line)
             html_lines.append(html_line)
-    
+
     if in_paragraph:
         html_lines.append("</p>")
     if in_ulist:
@@ -91,28 +94,29 @@ def convert_markdown_to_html(markdown_text):
 
     return "\n".join(html_lines)
 
+
 def main():
     if len(sys.argv) < 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print("Usage: ./markdown2html.py <input_file> <output_file>", file=sys.stderr)
         sys.exit(1)
-    
+
     markdown_file = sys.argv[1]
     html_file = sys.argv[2]
-    
+
     if not os.path.exists(markdown_file):
         print(f"Missing {markdown_file}", file=sys.stderr)
         sys.exit(1)
 
     with open(markdown_file, 'r') as md_file:
         md_content = md_file.read()
-    
+
     html_content = convert_markdown_to_html(md_content)
-    
+
     with open(html_file, 'w') as html_file:
         html_file.write(html_content)
-    
+
     sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
-
