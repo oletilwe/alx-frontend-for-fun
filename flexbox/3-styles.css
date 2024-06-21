@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+[class*='col-'] {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 1;
+}
+
+.col-1 {
+    flex: 0 0 8.33%;
+    max-width: 8.33%;
+}
+
+.col-2 {
+    flex: 0 0 16.66%;
+    max-width: 16.66%;
+}
+
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+
+.col-5 {
+    flex: 0 0 41.66%;
+    max-width: 41.66%;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-7 {
+    flex: 0 0 58.33%;
+    max-width: 58.33%;
+}
+
+.col-8 {
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+}
+
+.col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.col-10 {
+    flex: 0 0 83.33%;
+    max-width: 83.33%;
+}
+
+.col-11 {
+    flex: 0 0 91.66%;
+    max-width: 91.66%;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* Responsive Design with Flex-Direction */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+/* Section Latest news ============================= */
+.section-latest-news .row {
+    flex-direction: row-reverse;
+}
+
+/* Section SERVICES ============================= */
+.section-services .row {
+    flex-wrap: wrap;
+}
+
+/*** 4. CARD ***/
+  
+/* Card (all styles)
+    ============================= */
+
+.card-category {
+    color: var(--color-primary);
+}
+
+/* Card WORK
+    ============================= */
+
+.card-work .card-outer {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-work:hover .card-outer {
+    transform: scale(0.95);
+}
+
+.card-work .card-image img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.card-work:hover .card-image {
+    transform: scale(1.2);
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work .card-inner {
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    z-index: 1;
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work:hover .card-inner {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card-work .card-title {
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    height: 100%;
+    position: relative;
+}
+
+.card-work .card-title a {
+    display: block;
+    text-decoration: none;
+    padding-top: 45%;
+}
+
+.card-work .card-title a::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+}
+
+.card-work:hover .card-title {
+    opacity: 1;
+}
+
+/* Card SERVICES
+    ============================= */
+
+.card-services .card-title {
+    margin: 0;
+}
+
+.card-services a {
+    display: block;
+    padding: 2rem;
+    background-color: var(--color-light-grey);
+}
+
+.card-services a:hover {
+    color: var(--color-white);
+    background: var(--color-primary);
+    text-decoration: none;
+    transition-duration: 0.3s;
+    transition-property: color, background-color;
+}
+
+/* Card TESTIMONIAL
+    ============================= */
+
+.card-testimonial {
+    text-align: center;
+}
+
+.card-testimonial .card-avatar {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+}
+
+.card-testimonial .card-quote cite {
+    display: block;
+    padding-top: 1rem;
+    color: var(--color-primary);
+}
+
+.card-testimonial .card-quote {
+    position: relative;
+}
+
+.card-testimonial .card-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -4.5rem;
+    left: -1rem;
+    color: #efeded;
+    font-size: 10rem;
+    z-index: -1;
+}
